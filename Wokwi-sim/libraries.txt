@@ -1,0 +1,8 @@
+# Wokwi Library List
+# See https://docs.wokwi.com/guides/libraries
+
+PubSubClient
+PubSubClient3
+ESP32Servo
+ESP32Servo360
+ESP32ServoController
