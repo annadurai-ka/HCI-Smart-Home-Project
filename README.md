@@ -1,32 +1,109 @@
-# HCI Smart Home Application
+# Smart Home Control - HCI Final Project
 
-This project is a full-stack, end-to-end prototype of a smart home mobile application. It includes a React front-end, a Node.js backend server, and a simulated ESP32 device running in Wokwi.
+This repository contains the final project for an HCI and Application Design course. The project is a full-stack smart home control application that allows a user to manage various IoT devices through a web interface. It demonstrates a complete interaction loop, from a user action on the frontend to a physical response on a simulated IoT device.
+
+![App Screenshots](https://i.imgur.com/8a5Z2Yg.jpeg)
+
+---
 
 ## Project Architecture
 
-The system operates in four main parts:
-1.  **React Front-End:** A mobile app interface where the user can view rooms and toggle devices on or off.
-2.  **Node.js/Express Backend:** An API server that receives commands from the React app via HTTP requests.
-3.  **MQTT Broker:** A message broker (HiveMQ public broker) that decouples the backend from the IoT device. The backend publishes messages to specific "topics."
-4.  **ESP32 Wokwi Simulation:** A virtual IoT device that subscribes to the MQTT topics. It listens for messages and controls virtual hardware (LEDs and a servo motor) accordingly.
+The application is built on a modern, decoupled architecture, consisting of three main components that communicate in real-time:
 
+1.  **Frontend (React):** A responsive user interface built with React and styled with Tailwind CSS. It provides the user with a dashboard to view and control their smart devices.
+2.  **Backend (Node.js & Express):** A simple server that acts as a bridge between the frontend and the MQTT broker. It exposes a REST API endpoint that the frontend calls to send commands.
+3.  **IoT Device (ESP32 on Wokwi):** A simulated ESP32 microcontroller running on the Wokwi platform. It connects to an MQTT broker to listen for commands from the backend and controls simulated hardware (LEDs and a servo motor).
 
+The data flow is as follows:
+**`React App (User Click)`** → **`HTTP POST Request`** → **`Node.js Server`** → **`MQTT Publish`** → **`HiveMQ Broker`** → **`MQTT Subscribe`** → **`ESP32 (Device Action)`**
 
-## How to Run
-### Frontend (React App)
-```bash
-cd frontend
-npm install
-npm start
+---
+
+## Features
+
+* **Home Dashboard:** A central screen displaying a weather widget and a list of all rooms.
+* **Room Control Panels:** Dedicated pages for each room where users can toggle individual devices on and off.
+* **Real-time Device Control:** User actions on the web interface are instantly sent to the simulated IoT device via MQTT.
+* **Profile Page:** A user profile screen displaying personal information and app utilities.
+* **Responsive Design:** The UI is designed to work on mobile-sized screens, matching the initial Figma prototype.
+
+---
+
+## Technology used
+
+* **Frontend:** React, Tailwind CSS, Lucide React (Icons)
+* **Backend:** Node.js, Express.js, `cors`
+* **IoT & Communication:**
+    * MQTT (via HiveMQ public broker)
+    * `mqtt.js` (Node.js client)
+    * `PubSubClient` (Arduino library)
+* **Simulation:** Wokwi for ESP32
+
+---
+
+## Project Structure
+
+The repository is organized into three main directories:
+
 ```
-### Backend (Node.js Server)
+
+.
+├── /backend/         \# Contains the Node.js Express server
+├── /esp32/           \# Contains the Arduino code and diagram for the Wokwi simulation
+└── /frontend/        \# Contains the React application
+
+````
+
+---
+
+## 🚀 Setup and Installation
+
+To run this project, you will need to set up the backend, frontend, and the Wokwi simulation.
+
+### 1. Backend Server
+
+The backend server listens for requests from the frontend and publishes MQTT messages.
+
 ```bash
+# Navigate to the backend directory
 cd backend
+
+# Install dependencies
 npm install
+
+# Run the server
 node server.js
+
+# The server will be running on http://localhost:5000
+````
+
+### 2\. Frontend Application
+
+The React app provides the user interface for controlling the devices.
+
+```bash
+# Navigate to the frontend directory
+cd frontend
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm start
+
+# The application will open in your browser at http://localhost:3000
 ```
-### Wokwi Simulation
-1.  Go to [Wokwi.com](https://wokwi.com/).
-2.  Create a new ESP32 project.
-3.  Replace the default `sketch.ino` and `diagram.json` with the files from the `/wokwi_simulation` folder.
-4.  Add your WiFi credentials if needed and run the simulation.
+
+### 3\. ESP32 Simulation (Wokwi)
+
+The IoT device is simulated in the browser using Wokwi.
+
+1.  Go to the [Wokwi Project Page](https://wokwi.com/). *(**Note:** You will need to replace this with the actual link to your saved Wokwi project.)*
+2.  The project contains three files: `sketch.ino`, `diagram.json`, and `wokwi.toml`.
+3.  Ensure the ESP32 is connected to the "Wokwi-GUEST" WiFi by default.
+4.  Start the simulation by clicking the "Start" (▶) button. The serial monitor will show the device connecting to WiFi and the MQTT broker.
+
+Once all three components are running, you can click the toggle buttons in the web application and see the LEDs and servo motor react in the Wokwi simulation in real-time.
+
+```
+```
