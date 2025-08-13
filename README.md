@@ -2,11 +2,6 @@
 
 This repository contains the final project for an HCI and Application Design course. The project is a full-stack smart home control application that allows a user to manage various IoT devices through a web interface. It demonstrates a complete interaction loop, from a user action on the frontend to a physical response on a simulated IoT device.
 
-
-![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/2e0f7b19132a72deb8178593944228cc66b178eb/Front_end/1.Home_screen_UI.png "Logo Title Text 1")
-![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/e97e54ec2ed81c739c4a0cf25cd85e1569f3e0d0/Front_end/2.%20Profile_Screen_UI.png "Logo Title Text 1")
-![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/fa587c27430ff1af01fca8339041b40e8783fb09/Front_end/3.Control_screen_1_UI.png "Logo Title Text 1")
-![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/acdae14f3e94eec074951840bd7c3d81ee79221d/Front_end/4.Control_screen_2_UI.png "Logo Title Text 1")
 ---
 
 ## Project Architecture
@@ -107,4 +102,9 @@ The IoT device is simulated in the browser using Wokwi.
 4.  Start the simulation by clicking the "Start" (▶) button. The serial monitor will show the device connecting to WiFi and the MQTT broker.
 
 Once all three components are running, you can click the toggle buttons in the web application and see the LEDs and servo motor react in the Wokwi simulation in real-time.
+
+![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/2e0f7b19132a72deb8178593944228cc66b178eb/Front_end/1.Home_screen_UI.png "Logo Title Text 1")
+![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/e97e54ec2ed81c739c4a0cf25cd85e1569f3e0d0/Front_end/2.%20Profile_Screen_UI.png "Logo Title Text 1")
+![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/fa587c27430ff1af01fca8339041b40e8783fb09/Front_end/3.Control_screen_1_UI.png "Logo Title Text 1")
+![alt text](https://github.com/annadurai-ka/HCI-Smart-Home-Project/blob/acdae14f3e94eec074951840bd7c3d81ee79221d/Front_end/4.Control_screen_2_UI.png "Logo Title Text 1")
 
