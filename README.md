@@ -46,9 +46,9 @@ The repository is organized into three main directories:
 ```
 
 .
-├── /backend/         \# Contains the Node.js Express server
-├── /esp32/           \# Contains the Arduino code and diagram for the Wokwi simulation
-└── /frontend/        \# Contains the React application
+├── /Back_end/         \# Contains the Node.js Express server
+├── /Wokwi_sim/           \# Contains the Arduino code and diagram for the Wokwi simulation
+└── /Front_end/        \# Contains the React application
 
 ````
 
